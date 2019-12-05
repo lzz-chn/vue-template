@@ -3,7 +3,7 @@ import axios from 'axios';
 import qs from 'qs'; // 引入qs模块，用来序列化post类型的数据
 import { Message } from 'element-ui';
 
-axios.defaults.baseURL = 'http://rnd.scimedsoft.com:21004/'; // 测试   
+axios.defaults.baseURL = 'http://rnd.scimedsoft.com:21004/'; // 测试
 // axios.defaults.headers.common['Authorization'] = store.state.token;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
@@ -42,6 +42,10 @@ axios.interceptors.response.use(
 
 Plugin.install = (Vue, options) => {
     Vue.prototype.$axios = {
+        // 封装 全参数
+        default(config) {
+            return axios(config);
+        },
         // 封装 get
         get(url, params) {
             return axios.get(url, { params });
@@ -49,6 +53,13 @@ Plugin.install = (Vue, options) => {
         // 封装 post
         post(url, params) {
             return axios.post(url, qs.stringify(params));
+        },
+        // 封装 all
+        all(config) {
+            return axios.all(config);
+        },
+        spread(config) {
+            return axios.spread(config);
         }
     };
 };
