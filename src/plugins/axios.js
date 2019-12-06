@@ -3,7 +3,7 @@ import axios from 'axios';
 import qs from 'qs'; // 引入qs模块，用来序列化post类型的数据
 import { Message } from 'element-ui';
 
-axios.defaults.baseURL = 'http://rnd.scimedsoft.com:21004/'; // 测试
+axios.defaults.baseURL = process.env.VUE_APP_API;
 // axios.defaults.headers.common['Authorization'] = store.state.token;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
