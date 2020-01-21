@@ -2,18 +2,18 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-import home from '@/views/home';
+import home from '@/views/Home';
 
 const routes = [
     {
         path: '/',
-        name: 'home',
+        name: 'Home',
         component: home,
         children: [
             {
-                path: 'header',
-                name: 'header',
-                component: () => import('@/components/header') //路由懒加载
+                path: 'HeaderNav',
+                name: 'HeaderNav',
+                component: () => import('@/components/HeaderNav') //路由懒加载
             }
         ]
     }

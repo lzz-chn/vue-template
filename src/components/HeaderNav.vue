@@ -1,6 +1,6 @@
 <template>
-    <div class="header">
-        <h3>header</h3>
+    <div class="header-nav">
+        <h3>HeaderNav</h3>
         name:{{ $store.state.header.name }} <br />
         <button @click="commitName">commitName</button>
         <button @click="dispatchName">dispatchName</button>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: 'header',
+    name: 'HeaderNav',
     data() {
         return {};
     },
@@ -25,6 +25,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.header {
+.header-nav {
 }
 </style>
