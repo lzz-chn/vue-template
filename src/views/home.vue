@@ -1,7 +1,5 @@
 <template>
     <div class="home">
-        <h3>Home</h3>
-        <router-link to="/HeaderNav">header</router-link>
         <router-view />
     </div>
 </template>
