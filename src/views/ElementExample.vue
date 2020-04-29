@@ -7,7 +7,7 @@
         <FuzzyQuery @fuzzyQuery="getList" :pageSize="page.pageSize" params="name" placeholder="输入XX回车以查询" />
         <el-divider></el-divider>
         <h4>Pagination</h4>
-        <Pagination @currentChange="getList" :page="page" />
+        <Pagination @currentChange="getList" :page="page" :query="pagination" />
         <el-divider></el-divider>
     </div>
 </template>
@@ -23,10 +23,14 @@ export default {
         return {
             fileList: [],
             page: { pageNum: 1, pageSize: 1000, total: 10 },
-            tableData: []
+            tableData: [],
+            pagination: {}
         }
     },
     components: { FileUpload, Pagination, FuzzyQuery },
+    mounted() {
+        this.pagination = { [this.$refs.fuzzyQuery.params]: this.$refs.fuzzyQuery.search }
+    },
     methods: {
         // 上传文件成功
         uploadSuccess(res, name, postfix) {

@@ -20,15 +20,15 @@ export default {
     data() {
         return {}
     },
-    props: ['page'],
+    props: { page: { type: Object }, query: { type: Object } },
     methods: {
         // 改变每页数量
         handleSizeChange(val) {
-            this.$emit('currentChange', 1, val)
+            this.$emit('currentChange', 1, val, { ...this.query })
         },
         // 改变页数
         handleCurrentChange(val) {
-            this.$emit('currentChange', val)
+            this.$emit('currentChange', val, this.page.pageSize, { ...this.query })
         }
     }
 }
