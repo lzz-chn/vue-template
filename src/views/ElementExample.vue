@@ -43,6 +43,11 @@
             </DialogForm>
             <el-divider></el-divider>
         </div>
+        <div class="example-item">
+            <h4>DPlayer</h4>
+            <DPlayer liveUrl="http://dzgp.jyhosp.cn:18882/flv/11_5327611" />
+            <el-divider></el-divider>
+        </div>
     </div>
 </template>
 
@@ -51,6 +56,7 @@ import FileUpload from '@/components/element/fileUpload'
 import FuzzyQuery from '@/components/element/fuzzyQuery'
 import Pagination from '@/components/element/pagination'
 import DialogForm from '@/components/element/dialogForm'
+import DPlayer from '@/components/video/DPlayer'
 
 export default {
     name: 'elementExample',
@@ -64,7 +70,7 @@ export default {
             dialogForm: { content: '' }
         }
     },
-    components: { FileUpload, Pagination, FuzzyQuery, DialogForm },
+    components: { FileUpload, Pagination, FuzzyQuery, DialogForm, DPlayer },
     mounted() {
         this.pagination = { [this.$refs.fuzzyQuery.params]: this.$refs.fuzzyQuery.search }
     },

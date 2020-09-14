@@ -9,6 +9,9 @@ export default {
     name: 'Home',
     data() {
         return {};
+    },
+    mounted(){
+        this.$router.push('/elementExample')
     }
 };
 </script>
